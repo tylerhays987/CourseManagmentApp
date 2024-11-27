@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace CourseManagementApp.Models
 {
-    internal class User
+    public class User
     {
+        public int Id { get; set; }
+        public string Username { get; set; }
+        public int UserId { get; set; }
+        public string Name { get; set; }
+        public string Role { get; set; } // "Student" or "Instructor"
+        public List<int> EnrolledCourses { get; set; } = new List<int>();
     }
 }
