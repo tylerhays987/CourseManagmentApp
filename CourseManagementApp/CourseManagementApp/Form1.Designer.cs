@@ -52,24 +52,28 @@
             coursesToolStripMenuItem.Name = "coursesToolStripMenuItem";
             coursesToolStripMenuItem.Size = new Size(61, 20);
             coursesToolStripMenuItem.Text = "Courses";
+            coursesToolStripMenuItem.Click += coursesToolStripMenuItem_Click;
             // 
             // notificationsToolStripMenuItem
             // 
             notificationsToolStripMenuItem.Name = "notificationsToolStripMenuItem";
             notificationsToolStripMenuItem.Size = new Size(87, 20);
             notificationsToolStripMenuItem.Text = "Notifications";
+            notificationsToolStripMenuItem.Click += notificationsToolStripMenuItem_Click;
             // 
             // enrollmentToolStripMenuItem
             // 
             enrollmentToolStripMenuItem.Name = "enrollmentToolStripMenuItem";
             enrollmentToolStripMenuItem.Size = new Size(77, 20);
             enrollmentToolStripMenuItem.Text = "Enrollment";
+            enrollmentToolStripMenuItem.Click += enrollmentToolStripMenuItem_Click;
             // 
             // discussionsToolStripMenuItem
             // 
             discussionsToolStripMenuItem.Name = "discussionsToolStripMenuItem";
             discussionsToolStripMenuItem.Size = new Size(80, 20);
             discussionsToolStripMenuItem.Text = "Discussions";
+            discussionsToolStripMenuItem.Click += discussionsToolStripMenuItem_Click;
             // 
             // toolStripStatusLabelUser
             // 
