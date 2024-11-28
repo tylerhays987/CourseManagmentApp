@@ -21,7 +21,7 @@ namespace CourseManagementApp
                     {
                         MessageBox.Show("You must log in to use the application.", "Access Denied",
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        this.Close(); // Exit the application
+                        this.Close(); 
                     }
                 }
             }
@@ -37,7 +37,7 @@ namespace CourseManagementApp
 
             if (loginSuccessful)
             {
-                UpdateUserStatus(userName); // Update the StatusStrip
+                UpdateUserStatus(userName); 
                 MessageBox.Show($"Welcome, {userName}!", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else

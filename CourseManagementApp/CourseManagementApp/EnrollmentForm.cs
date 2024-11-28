@@ -19,44 +19,57 @@ namespace CourseManagementApp
             InitializeComponent();
             LoadAvailableCourses();
         }
+
+        // Load courses into the available courses ListBox
         private void LoadAvailableCourses()
         {
-            var courses = DataService.GetCourses();
+            var courses = CourseService.GetCourses(); 
             foreach (var course in courses)
             {
-                listBoxCourses.Items.Add(course.Name); 
+                listBoxCourses.Items.Add(course.Name);
             }
         }
+
+        // Add a course to the selected courses ListBox
         private void btnAddCourse_Click(object sender, EventArgs e)
         {
             if (listBoxCourses.SelectedItem != null)
             {
                 string selectedCourse = listBoxCourses.SelectedItem.ToString();
-                listBoxSelectedCourses.Items.Add(selectedCourse); 
-                listBoxCourses.Items.Remove(selectedCourse); 
+                listBoxSelectedCourses.Items.Add(selectedCourse);
+                listBoxCourses.Items.Remove(selectedCourse);
             }
         }
 
+        // Remove a course from the selected courses ListBox
         private void btnRemoveCourse_Click(object sender, EventArgs e)
         {
             if (listBoxSelectedCourses.SelectedItem != null)
             {
                 string selectedCourse = listBoxSelectedCourses.SelectedItem.ToString();
-                listBoxCourses.Items.Add(selectedCourse); 
-                listBoxSelectedCourses.Items.Remove(selectedCourse); 
+                listBoxCourses.Items.Add(selectedCourse);
+                listBoxSelectedCourses.Items.Remove(selectedCourse);
             }
         }
 
+        // Enroll in selected courses
         private void btnEnroll_Click(object sender, EventArgs e)
         {
             if (UserSession.IsUserLoggedIn)
             {
-                
                 int userId = UserSession.LoggedInUser.Id;
 
-                
-                MessageBox.Show($"User {userId} is enrolling in courses.", "Enrollment Successful",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (listBoxSelectedCourses.Items.Count > 0)
+                {
+                    var enrolledCourses = string.Join(", ", listBoxSelectedCourses.Items.Cast<string>());
+                    MessageBox.Show($"User {userId} has enrolled in: {enrolledCourses}.", "Enrollment Successful",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No courses selected for enrollment.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else
             {
@@ -65,6 +78,7 @@ namespace CourseManagementApp
             }
         }
 
+        // Cancel and close the form
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();

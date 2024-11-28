@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseManagementApp.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,16 @@ namespace CourseManagementApp
         public CourseDetailsForm()
         {
             InitializeComponent();
+        }
+        private void CoursesDetailsForm_Load(object sender, EventArgs e)
+        {
+            // Fetch courses and bind them to the DataGridView
+            var courses = CourseService.GetCourses();
+            dgvCourses.DataSource = courses;
+
+            // Adjust column display
+            dgvCourses.Columns["Id"].Visible = false; // Hide ID column
+            dgvCourses.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
     }
 }

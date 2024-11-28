@@ -28,12 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "NotificationsForm";
+            notificationsListView = new ListView();
+            button1 = new Button();
+            SuspendLayout();
+            // 
+            // notificationsListView
+            // 
+            notificationsListView.Location = new Point(477, 303);
+            notificationsListView.Name = "notificationsListView";
+            notificationsListView.Size = new Size(67, 47);
+            notificationsListView.TabIndex = 0;
+            notificationsListView.UseCompatibleStateImageBehavior = false;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(368, 12);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 1;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click_1;
+            // 
+            // NotificationsForm
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(button1);
+            Controls.Add(notificationsListView);
+            Name = "NotificationsForm";
+            Text = "NotificationsForm";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private ListView notificationsListView;
+        private Button button1;
     }
 }
